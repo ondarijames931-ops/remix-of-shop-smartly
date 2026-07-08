@@ -17,21 +17,34 @@ export const Route = createFileRoute("/products")({
 
 const chains = ["All", "Naivas", "Quickmart", "Shoprite", "Carrefour", "Chandarana"];
 
+const PRICE_MIN = 0;
+const PRICE_MAX = Math.max(...products.map((p) => p.price));
+
 function ProductsPage() {
   const [q, setQ] = useState("");
   const [cat, setCat] = useState<string>("All");
   const [chain, setChain] = useState<string>("All");
+  const [minPrice, setMinPrice] = useState<number>(PRICE_MIN);
+  const [maxPrice, setMaxPrice] = useState<number>(PRICE_MAX);
 
   const filtered = useMemo(() => {
     return products.filter((p) => {
       if (q && !p.name.toLowerCase().includes(q.toLowerCase())) return false;
       if (cat !== "All" && p.category !== cat) return false;
       if (chain !== "All" && p.supermarket !== chain) return false;
+      if (p.price < minPrice || p.price > maxPrice) return false;
       return true;
     });
-  }, [q, cat, chain]);
+  }, [q, cat, chain, minPrice, maxPrice]);
 
   const cats = ["All", ...categories];
+  const resetFilters = () => {
+    setQ(""); setCat("All"); setChain("All");
+    setMinPrice(PRICE_MIN); setMaxPrice(PRICE_MAX);
+  };
+  const activeFilters =
+    (q ? 1 : 0) + (cat !== "All" ? 1 : 0) + (chain !== "All" ? 1 : 0) +
+    (minPrice !== PRICE_MIN || maxPrice !== PRICE_MAX ? 1 : 0);
 
   return (
     <div className="min-h-screen bg-background">

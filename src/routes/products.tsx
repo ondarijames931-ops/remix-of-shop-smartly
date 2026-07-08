@@ -93,7 +93,66 @@ function ProductsPage() {
           ))}
         </div>
 
-        <p className="mt-6 text-sm text-muted-foreground">{filtered.length} items</p>
+        <div className="mt-5 rounded-2xl border border-border bg-card p-5 shadow-card">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <p className="text-sm font-semibold text-foreground">Price range</p>
+              <p className="text-xs text-muted-foreground">
+                {formatKES(minPrice)} — {formatKES(maxPrice)}
+              </p>
+            </div>
+            <div className="flex items-center gap-2">
+              <label className="text-xs text-muted-foreground">Min</label>
+              <input
+                type="number"
+                min={PRICE_MIN}
+                max={maxPrice}
+                value={minPrice}
+                onChange={(e) => setMinPrice(Math.max(PRICE_MIN, Math.min(maxPrice, Number(e.target.value) || 0)))}
+                className="w-24 rounded-lg border border-border bg-background px-2 py-1 text-sm focus:border-primary focus:outline-none"
+              />
+              <label className="text-xs text-muted-foreground">Max</label>
+              <input
+                type="number"
+                min={minPrice}
+                max={PRICE_MAX}
+                value={maxPrice}
+                onChange={(e) => setMaxPrice(Math.min(PRICE_MAX, Math.max(minPrice, Number(e.target.value) || 0)))}
+                className="w-24 rounded-lg border border-border bg-background px-2 py-1 text-sm focus:border-primary focus:outline-none"
+              />
+            </div>
+          </div>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            <div>
+              <input
+                type="range" min={PRICE_MIN} max={PRICE_MAX} value={minPrice}
+                onChange={(e) => setMinPrice(Math.min(Number(e.target.value), maxPrice))}
+                className="w-full accent-primary"
+              />
+              <p className="mt-1 text-[11px] text-muted-foreground">Minimum</p>
+            </div>
+            <div>
+              <input
+                type="range" min={PRICE_MIN} max={PRICE_MAX} value={maxPrice}
+                onChange={(e) => setMaxPrice(Math.max(Number(e.target.value), minPrice))}
+                className="w-full accent-primary"
+              />
+              <p className="mt-1 text-[11px] text-muted-foreground">Maximum</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-6 flex items-center justify-between">
+          <p className="text-sm text-muted-foreground">
+            {filtered.length} item{filtered.length === 1 ? "" : "s"}
+            {activeFilters > 0 && <span className="ml-2 text-xs text-primary">· {activeFilters} filter{activeFilters === 1 ? "" : "s"} active</span>}
+          </p>
+          {activeFilters > 0 && (
+            <button onClick={resetFilters} className="text-xs font-semibold text-primary hover:underline">
+              Clear all
+            </button>
+          )}
+        </div>
 
         <div className="mt-4 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {filtered.map((p) => {

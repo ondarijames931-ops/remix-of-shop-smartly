@@ -158,21 +158,30 @@ function ProductsPage() {
           {filtered.map((p) => {
             const off = p.originalPrice ? Math.round((1 - p.price / p.originalPrice) * 100) : 0;
             return (
-              <div key={p.id} className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card p-5 shadow-card transition hover:-translate-y-1 hover:shadow-glow">
-                <div className="flex items-start justify-between">
-                  <span className="text-5xl leading-none">{p.image}</span>
+              <div key={p.id} className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-card transition hover:-translate-y-1 hover:shadow-glow">
+                <div className="relative aspect-square overflow-hidden bg-secondary/40">
+                  <img
+                    src={p.image}
+                    alt={p.name}
+                    loading="lazy"
+                    width={512}
+                    height={512}
+                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                  />
                   {off > 0 && (
-                    <span className="rounded-full bg-success/10 px-2.5 py-1 text-xs font-bold text-success">-{off}%</span>
+                    <span className="absolute right-3 top-3 rounded-full bg-success px-2.5 py-1 text-xs font-bold text-success-foreground shadow-card">-{off}%</span>
                   )}
                 </div>
-                <h3 className="mt-4 line-clamp-2 text-base font-semibold leading-tight">{p.name}</h3>
-                <p className="mt-1 text-xs text-muted-foreground">{p.category} · {p.unit}</p>
-                <div className="mt-auto pt-4">
-                  <div className="flex items-baseline gap-2">
-                    <span className="font-display text-xl font-bold text-primary">{formatKES(p.price)}</span>
-                    {p.originalPrice && <span className="text-sm text-muted-foreground line-through">{formatKES(p.originalPrice)}</span>}
+                <div className="flex flex-1 flex-col p-5">
+                  <h3 className="line-clamp-2 text-base font-semibold leading-tight">{p.name}</h3>
+                  <p className="mt-1 text-xs text-muted-foreground">{p.category} · {p.unit}</p>
+                  <div className="mt-auto pt-4">
+                    <div className="flex items-baseline gap-2">
+                      <span className="font-display text-xl font-bold text-primary">{formatKES(p.price)}</span>
+                      {p.originalPrice && <span className="text-sm text-muted-foreground line-through">{formatKES(p.originalPrice)}</span>}
+                    </div>
+                    <p className="mt-1 text-xs font-medium text-muted-foreground">at {p.supermarket}</p>
                   </div>
-                  <p className="mt-1 text-xs font-medium text-muted-foreground">at {p.supermarket}</p>
                 </div>
               </div>
             );

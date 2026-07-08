@@ -102,6 +102,86 @@ export const products: Product[] = [
   { id: "p24", name: "USB-C Phone Charger 20W", category: "Electronics", price: 899, unit: "1pc", supermarket: "Naivas", image: charger },
   { id: "p25", name: "Fresh Red Onions", category: "Fresh Produce", price: 140, unit: "kg", supermarket: "Shoprite", image: onions },
   { id: "p26", name: "Baked Beans in Tomato Sauce", category: "Groceries", price: 145, originalPrice: 175, unit: "400g tin", supermarket: "Carrefour", image: beans },
+
+  // Groceries – flour, maize meal, rice, pasta
+  { id: "p27", name: "Pembe Maize Flour", category: "Groceries", price: 165, unit: "2kg", supermarket: "Shoprite", image: flour },
+  { id: "p28", name: "Jogoo Maize Meal", category: "Groceries", price: 180, originalPrice: 210, unit: "2kg", supermarket: "Quickmart", image: flour },
+  { id: "p29", name: "Exe Wheat Flour", category: "Groceries", price: 195, unit: "2kg", supermarket: "Carrefour", image: flour },
+  { id: "p30", name: "Dola Long Grain Rice", category: "Groceries", price: 285, originalPrice: 320, unit: "1kg", supermarket: "Quickmart", image: rice },
+  { id: "p31", name: "Mwea Pishori Rice", category: "Groceries", price: 420, unit: "2kg", supermarket: "Naivas", image: rice },
+  { id: "p32", name: "Daawat Basmati Rice", category: "Groceries", price: 850, originalPrice: 990, unit: "2kg", supermarket: "Carrefour", image: rice },
+  { id: "p33", name: "Ndovu Sugar", category: "Groceries", price: 175, unit: "1kg", supermarket: "Shoprite", image: sugar },
+  { id: "p34", name: "Mumias Brown Sugar", category: "Groceries", price: 195, unit: "1kg", supermarket: "Naivas", image: sugar },
+  { id: "p35", name: "Elianto Cooking Oil", category: "Groceries", price: 720, originalPrice: 820, unit: "2L", supermarket: "Naivas", image: oil },
+  { id: "p36", name: "Fresh Fri Vegetable Oil", category: "Groceries", price: 395, unit: "1L", supermarket: "Quickmart", image: oil },
+  { id: "p37", name: "Rina Sunflower Oil", category: "Groceries", price: 410, unit: "1L", supermarket: "Chandarana", image: oil },
+  { id: "p38", name: "Prestige Margarine", category: "Groceries", price: 190, originalPrice: 220, unit: "500g", supermarket: "Naivas", image: margarine },
+  { id: "p39", name: "Blue Band Original", category: "Groceries", price: 240, unit: "500g", supermarket: "Carrefour", image: margarine },
+  { id: "p40", name: "Heinz Baked Beans", category: "Groceries", price: 210, unit: "415g tin", supermarket: "Chandarana", image: beans },
+  { id: "p41", name: "Trufoods Baked Beans", category: "Groceries", price: 135, originalPrice: 160, unit: "400g tin", supermarket: "Naivas", image: beans },
+  { id: "p42", name: "Kenchic Chicken Drumsticks", category: "Groceries", price: 540, unit: "1kg", supermarket: "Naivas", image: chicken },
+  { id: "p43", name: "Farmer's Choice Chicken Sausages", category: "Groceries", price: 380, originalPrice: 450, unit: "400g", supermarket: "Shoprite", image: chicken },
+  { id: "p44", name: "Quail Farm Eggs", category: "Groceries", price: 260, unit: "tray of 12", supermarket: "Chandarana", image: eggs },
+  { id: "p45", name: "Kenchic Eggs", category: "Groceries", price: 460, originalPrice: 500, unit: "tray of 30", supermarket: "Quickmart", image: eggs },
+
+  // Fresh Produce
+  { id: "p46", name: "Fresh Spinach Bunch", category: "Fresh Produce", price: 30, unit: "bunch", supermarket: "Naivas", image: sukuma },
+  { id: "p47", name: "Green Kale (Sukuma)", category: "Fresh Produce", price: 25, unit: "bunch", supermarket: "Quickmart", image: sukuma },
+  { id: "p48", name: "Managu Traditional Greens", category: "Fresh Produce", price: 40, unit: "bunch", supermarket: "Shoprite", image: sukuma },
+  { id: "p49", name: "Roma Tomatoes", category: "Fresh Produce", price: 110, unit: "kg", supermarket: "Naivas", image: tomatoes },
+  { id: "p50", name: "Cherry Tomatoes Punnet", category: "Fresh Produce", price: 180, originalPrice: 220, unit: "250g", supermarket: "Carrefour", image: tomatoes },
+  { id: "p51", name: "White Onions", category: "Fresh Produce", price: 130, unit: "kg", supermarket: "Quickmart", image: onions },
+  { id: "p52", name: "Spring Onions Bunch", category: "Fresh Produce", price: 45, unit: "bunch", supermarket: "Chandarana", image: onions },
+  { id: "p53", name: "Sweet Yellow Bananas", category: "Fresh Produce", price: 100, unit: "kg", supermarket: "Naivas", image: bananas },
+  { id: "p54", name: "Green Cooking Bananas", category: "Fresh Produce", price: 90, unit: "kg", supermarket: "Quickmart", image: bananas },
+  { id: "p55", name: "Fuerte Avocados", category: "Fresh Produce", price: 35, unit: "each", supermarket: "Chandarana", image: avocado },
+  { id: "p56", name: "Organic Hass Avocados", category: "Fresh Produce", price: 55, originalPrice: 70, unit: "each", supermarket: "Carrefour", image: avocado },
+
+  // Beverages
+  { id: "p57", name: "Tuskys Whole Milk", category: "Beverages", price: 60, unit: "500ml", supermarket: "Shoprite", image: milk },
+  { id: "p58", name: "KCC Fresh Milk 1L", category: "Beverages", price: 125, originalPrice: 140, unit: "1L", supermarket: "Quickmart", image: milk },
+  { id: "p59", name: "Ilara UHT Milk", category: "Beverages", price: 130, unit: "1L", supermarket: "Carrefour", image: milk },
+  { id: "p60", name: "Daima Yoghurt Drink", category: "Beverages", price: 85, unit: "250ml", supermarket: "Chandarana", image: milk },
+  { id: "p61", name: "Fanta Orange 2L", category: "Beverages", price: 195, unit: "2L", supermarket: "Naivas", image: cola },
+  { id: "p62", name: "Sprite PET Bottle", category: "Beverages", price: 199, originalPrice: 235, unit: "2L", supermarket: "Quickmart", image: cola },
+  { id: "p63", name: "Stoney Tangawizi", category: "Beverages", price: 90, unit: "500ml", supermarket: "Shoprite", image: cola },
+  { id: "p64", name: "Ketepa Pride Tea", category: "Beverages", price: 220, unit: "250g", supermarket: "Quickmart", image: tea },
+  { id: "p65", name: "Kericho Gold Tea", category: "Beverages", price: 340, originalPrice: 390, unit: "500g", supermarket: "Carrefour", image: tea },
+  { id: "p66", name: "Tusker Lager 6-Pack", category: "Beverages", price: 1080, unit: "6×500ml", supermarket: "Naivas", image: beer },
+  { id: "p67", name: "Guinness Smooth 6-Pack", category: "Beverages", price: 1350, originalPrice: 1500, unit: "6×500ml", supermarket: "Shoprite", image: beer },
+  { id: "p68", name: "White Cap Lager", category: "Beverages", price: 220, unit: "500ml", supermarket: "Quickmart", image: beer },
+
+  // Household
+  { id: "p69", name: "Omo Auto Washing Powder", category: "Household", price: 520, unit: "1kg", supermarket: "Naivas", image: detergent },
+  { id: "p70", name: "Ariel Detergent Powder", category: "Household", price: 640, originalPrice: 720, unit: "1kg", supermarket: "Shoprite", image: detergent },
+  { id: "p71", name: "Sunlight Bar Soap", category: "Household", price: 90, unit: "800g bar", supermarket: "Quickmart", image: detergent },
+  { id: "p72", name: "Rosy Kitchen Tissue", category: "Household", price: 220, unit: "2 rolls", supermarket: "Naivas", image: toiletpaper },
+  { id: "p73", name: "Fay Toilet Paper 4-Pack", category: "Household", price: 260, originalPrice: 320, unit: "4 rolls", supermarket: "Quickmart", image: toiletpaper },
+  { id: "p74", name: "Hanan Toilet Paper 12-Pack", category: "Household", price: 620, unit: "12 rolls", supermarket: "Shoprite", image: toiletpaper },
+
+  // Bakery
+  { id: "p75", name: "Superloaf White Bread", category: "Bakery", price: 65, unit: "400g", supermarket: "Quickmart", image: bread },
+  { id: "p76", name: "Broadways Milk Loaf", category: "Bakery", price: 70, originalPrice: 85, unit: "400g", supermarket: "Shoprite", image: bread },
+  { id: "p77", name: "Sliced Sourdough Loaf", category: "Bakery", price: 320, unit: "500g", supermarket: "Chandarana", image: bread },
+  { id: "p78", name: "Chocolate Croissants", category: "Bakery", price: 220, originalPrice: 260, unit: "4pcs", supermarket: "Carrefour", image: croissant },
+  { id: "p79", name: "Almond Croissants", category: "Bakery", price: 260, unit: "4pcs", supermarket: "Chandarana", image: croissant },
+
+  // Personal Care
+  { id: "p80", name: "Geisha Beauty Soap", category: "Personal Care", price: 95, unit: "125g bar", supermarket: "Naivas", image: soap },
+  { id: "p81", name: "Dettol Original Soap", category: "Personal Care", price: 135, originalPrice: 160, unit: "175g bar", supermarket: "Shoprite", image: soap },
+  { id: "p82", name: "Imperial Leather Soap", category: "Personal Care", price: 150, unit: "125g bar", supermarket: "Quickmart", image: soap },
+  { id: "p83", name: "Close-Up Toothpaste", category: "Personal Care", price: 140, unit: "100ml", supermarket: "Naivas", image: toothpaste },
+  { id: "p84", name: "Sensodyne Toothpaste", category: "Personal Care", price: 380, originalPrice: 450, unit: "75ml", supermarket: "Chandarana", image: toothpaste },
+  { id: "p85", name: "Aquafresh Family Toothpaste", category: "Personal Care", price: 210, unit: "100ml", supermarket: "Quickmart", image: toothpaste },
+
+  // Electronics
+  { id: "p86", name: "JBL GO 3 Bluetooth Speaker", category: "Electronics", price: 5499, originalPrice: 6500, unit: "1pc", supermarket: "Carrefour", image: speaker },
+  { id: "p87", name: "Oraimo SoundGo Speaker", category: "Electronics", price: 1899, unit: "1pc", supermarket: "Naivas", image: speaker },
+  { id: "p88", name: "Ramtons Cordless Kettle 1.8L", category: "Electronics", price: 2999, originalPrice: 3600, unit: "1pc", supermarket: "Shoprite", image: kettle },
+  { id: "p89", name: "Von Hotpoint Kettle", category: "Electronics", price: 3899, unit: "1pc", supermarket: "Carrefour", image: kettle },
+  { id: "p90", name: "Anker 25W Fast Charger", category: "Electronics", price: 1899, originalPrice: 2200, unit: "1pc", supermarket: "Carrefour", image: charger },
+  { id: "p91", name: "Oraimo Charger 20W", category: "Electronics", price: 799, unit: "1pc", supermarket: "Quickmart", image: charger },
+  { id: "p92", name: "Samsung Travel Adapter 15W", category: "Electronics", price: 1299, unit: "1pc", supermarket: "Shoprite", image: charger },
 ];
 
 export const offers: Offer[] = [

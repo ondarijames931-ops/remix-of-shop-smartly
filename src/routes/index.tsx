@@ -63,18 +63,27 @@ function Home() {
         </div>
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {featured.map((p) => (
-            <div key={p.id} className="group relative overflow-hidden rounded-2xl border border-border bg-card p-5 shadow-card transition hover:-translate-y-1 hover:shadow-glow">
-              <div className="flex items-center justify-between">
-                <span className="text-5xl">{p.image}</span>
-                <span className="rounded-full bg-success/10 px-2.5 py-1 text-xs font-bold text-success">
+            <div key={p.id} className="group relative overflow-hidden rounded-2xl border border-border bg-card shadow-card transition hover:-translate-y-1 hover:shadow-glow">
+              <div className="relative aspect-square overflow-hidden bg-secondary/40">
+                <img
+                  src={p.image}
+                  alt={p.name}
+                  loading="lazy"
+                  width={512}
+                  height={512}
+                  className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                />
+                <span className="absolute right-3 top-3 rounded-full bg-success px-2.5 py-1 text-xs font-bold text-success-foreground shadow-card">
                   -{Math.round((1 - p.price / p.originalPrice!) * 100)}%
                 </span>
               </div>
-              <h3 className="mt-4 text-base font-semibold leading-tight">{p.name}</h3>
-              <p className="mt-1 text-xs text-muted-foreground">{p.supermarket} · {p.unit}</p>
-              <div className="mt-3 flex items-baseline gap-2">
-                <span className="font-display text-xl font-bold text-primary">{formatKES(p.price)}</span>
-                <span className="text-sm text-muted-foreground line-through">{formatKES(p.originalPrice!)}</span>
+              <div className="p-5">
+                <h3 className="text-base font-semibold leading-tight">{p.name}</h3>
+                <p className="mt-1 text-xs text-muted-foreground">{p.supermarket} · {p.unit}</p>
+                <div className="mt-3 flex items-baseline gap-2">
+                  <span className="font-display text-xl font-bold text-primary">{formatKES(p.price)}</span>
+                  <span className="text-sm text-muted-foreground line-through">{formatKES(p.originalPrice!)}</span>
+                </div>
               </div>
             </div>
           ))}

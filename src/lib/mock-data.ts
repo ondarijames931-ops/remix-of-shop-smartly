@@ -24,6 +24,42 @@ import kettle from "@/assets/products/kettle.jpg";
 import charger from "@/assets/products/charger.jpg";
 import onions from "@/assets/products/onions.jpg";
 import beans from "@/assets/products/beans.jpg";
+import salt from "@/assets/products/salt.jpg";
+import spaghetti from "@/assets/products/spaghetti.jpg";
+import honey from "@/assets/products/honey.jpg";
+import coffee from "@/assets/products/coffee.jpg";
+import yogurt from "@/assets/products/yogurt.jpg";
+import cheese from "@/assets/products/cheese.jpg";
+import cornflakes from "@/assets/products/cornflakes.jpg";
+import peanutbutter from "@/assets/products/peanutbutter.jpg";
+import diapers from "@/assets/products/diapers.jpg";
+import biscuits from "@/assets/products/biscuits.jpg";
+import ketchup from "@/assets/products/ketchup.jpg";
+import tv from "@/assets/products/tv.jpg";
+import microwave from "@/assets/products/microwave.jpg";
+import blender from "@/assets/products/blender.jpg";
+import fridge from "@/assets/products/fridge.jpg";
+import washer from "@/assets/products/washer.jpg";
+import phone from "@/assets/products/phone.jpg";
+import laptop from "@/assets/products/laptop.jpg";
+import airfryer from "@/assets/products/airfryer.jpg";
+import iron from "@/assets/products/iron.jpg";
+import gas from "@/assets/products/gas.jpg";
+import cookware from "@/assets/products/cookware.jpg";
+import matches from "@/assets/products/matches.jpg";
+import candles from "@/assets/products/candles.jpg";
+import notebook from "@/assets/products/notebook.jpg";
+import pineapple from "@/assets/products/pineapple.jpg";
+import carrots from "@/assets/products/carrots.jpg";
+import fish from "@/assets/products/fish.jpg";
+import beef from "@/assets/products/beef.jpg";
+import wine from "@/assets/products/wine.jpg";
+import juice from "@/assets/products/juice.jpg";
+import water from "@/assets/products/water.jpg";
+import shampoo from "@/assets/products/shampoo.jpg";
+import lotion from "@/assets/products/lotion.jpg";
+import deodorant from "@/assets/products/deodorant.jpg";
+import mattress from "@/assets/products/mattress.jpg";
 
 export type Supermarket = {
   id: string;
@@ -182,6 +218,104 @@ export const products: Product[] = [
   { id: "p90", name: "Anker 25W Fast Charger", category: "Electronics", price: 1899, originalPrice: 2200, unit: "1pc", supermarket: "Carrefour", image: charger },
   { id: "p91", name: "Oraimo Charger 20W", category: "Electronics", price: 799, unit: "1pc", supermarket: "Quickmart", image: charger },
   { id: "p92", name: "Samsung Travel Adapter 15W", category: "Electronics", price: 1299, unit: "1pc", supermarket: "Shoprite", image: charger },
+
+  // Cheap essentials
+  { id: "p93", name: "Kensalt Iodised Salt", category: "Groceries", price: 45, unit: "500g", supermarket: "Naivas", image: salt },
+  { id: "p94", name: "Sea Salt Fine Grain", category: "Groceries", price: 60, unit: "500g", supermarket: "Carrefour", image: salt },
+  { id: "p95", name: "SafariMatch Matchbox 10-Pack", category: "Household", price: 40, unit: "10 boxes", supermarket: "Quickmart", image: matches },
+  { id: "p96", name: "Kifaru Household Candles", category: "Household", price: 80, unit: "6pcs", supermarket: "Naivas", image: candles },
+  { id: "p97", name: "Kasuku A5 Exercise Book", category: "Stationery", price: 55, unit: "96 pages", supermarket: "Naivas", image: notebook },
+  { id: "p98", name: "Oxford Hardcover Notebook", category: "Stationery", price: 320, unit: "200 pages", supermarket: "Chandarana", image: notebook },
+
+  // Pasta / pantry
+  { id: "p99", name: "Santa Lucia Spaghetti", category: "Groceries", price: 130, unit: "500g", supermarket: "Naivas", image: spaghetti },
+  { id: "p100", name: "Barilla Spaghetti No.5", category: "Groceries", price: 420, originalPrice: 480, unit: "500g", supermarket: "Carrefour", image: spaghetti },
+  { id: "p101", name: "Peptang Tomato Ketchup", category: "Groceries", price: 195, unit: "400g", supermarket: "Naivas", image: ketchup },
+  { id: "p102", name: "Heinz Tomato Ketchup", category: "Groceries", price: 560, originalPrice: 640, unit: "570g", supermarket: "Chandarana", image: ketchup },
+  { id: "p103", name: "Zesta Peanut Butter Smooth", category: "Groceries", price: 340, unit: "400g", supermarket: "Quickmart", image: peanutbutter },
+  { id: "p104", name: "Skippy Peanut Butter", category: "Groceries", price: 890, originalPrice: 1050, unit: "462g", supermarket: "Carrefour", image: peanutbutter },
+  { id: "p105", name: "Kenya Nut Pure Honey", category: "Groceries", price: 620, unit: "500g", supermarket: "Naivas", image: honey },
+  { id: "p106", name: "Manuka Honey MGO 250+", category: "Groceries", price: 3800, originalPrice: 4400, unit: "250g", supermarket: "Chandarana", image: honey },
+
+  // Coffee & cereal
+  { id: "p107", name: "Africafé Instant Coffee", category: "Beverages", price: 380, unit: "100g", supermarket: "Naivas", image: coffee },
+  { id: "p108", name: "Nescafé Gold Blend", category: "Beverages", price: 1150, originalPrice: 1350, unit: "200g", supermarket: "Carrefour", image: coffee },
+  { id: "p109", name: "Dormans Espresso Beans", category: "Beverages", price: 1450, unit: "500g", supermarket: "Chandarana", image: coffee },
+  { id: "p110", name: "Kellogg's Corn Flakes", category: "Groceries", price: 690, originalPrice: 790, unit: "500g", supermarket: "Naivas", image: cornflakes },
+  { id: "p111", name: "Weetabix Original", category: "Groceries", price: 780, unit: "430g", supermarket: "Quickmart", image: cornflakes },
+
+  // Dairy & fresh
+  { id: "p112", name: "Brookside Strawberry Yoghurt", category: "Beverages", price: 95, unit: "250ml", supermarket: "Naivas", image: yogurt },
+  { id: "p113", name: "Bio Vanilla Yoghurt", category: "Beverages", price: 220, unit: "500g", supermarket: "Carrefour", image: yogurt },
+  { id: "p114", name: "Brown's Gouda Cheese", category: "Fresh Produce", price: 780, originalPrice: 900, unit: "250g", supermarket: "Chandarana", image: cheese },
+  { id: "p115", name: "Cheddar Block Cheese", category: "Fresh Produce", price: 640, unit: "250g", supermarket: "Carrefour", image: cheese },
+  { id: "p116", name: "Chocolate Chip Cookies", category: "Bakery", price: 180, unit: "150g", supermarket: "Naivas", image: biscuits },
+  { id: "p117", name: "Oreo Original Biscuits", category: "Bakery", price: 220, originalPrice: 260, unit: "137g", supermarket: "Quickmart", image: biscuits },
+
+  // Baby & personal care
+  { id: "p118", name: "Pampers Baby Diapers Size 4", category: "Personal Care", price: 1450, unit: "44 count", supermarket: "Naivas", image: diapers },
+  { id: "p119", name: "Huggies Ultra Diapers", category: "Personal Care", price: 1180, originalPrice: 1350, unit: "36 count", supermarket: "Carrefour", image: diapers },
+  { id: "p120", name: "Softcare Baby Diapers", category: "Personal Care", price: 640, unit: "30 count", supermarket: "Quickmart", image: diapers },
+  { id: "p121", name: "Sunsilk Shampoo Coconut", category: "Personal Care", price: 320, unit: "400ml", supermarket: "Naivas", image: shampoo },
+  { id: "p122", name: "Head & Shoulders Menthol", category: "Personal Care", price: 690, originalPrice: 790, unit: "400ml", supermarket: "Carrefour", image: shampoo },
+  { id: "p123", name: "Nivea Cocoa Body Lotion", category: "Personal Care", price: 480, unit: "400ml", supermarket: "Quickmart", image: lotion },
+  { id: "p124", name: "Vaseline Aloe Fresh Lotion", category: "Personal Care", price: 390, unit: "400ml", supermarket: "Naivas", image: lotion },
+  { id: "p125", name: "Rexona Motion Sense Spray", category: "Personal Care", price: 340, unit: "150ml", supermarket: "Naivas", image: deodorant },
+  { id: "p126", name: "Axe Dark Temptation Spray", category: "Personal Care", price: 560, originalPrice: 640, unit: "150ml", supermarket: "Carrefour", image: deodorant },
+
+  // Fresh produce & meat
+  { id: "p127", name: "Fresh Pineapple", category: "Fresh Produce", price: 180, unit: "1pc", supermarket: "Naivas", image: pineapple },
+  { id: "p128", name: "Thika Pineapple XL", category: "Fresh Produce", price: 240, unit: "1pc", supermarket: "Quickmart", image: pineapple },
+  { id: "p129", name: "Fresh Carrots", category: "Fresh Produce", price: 90, unit: "1kg", supermarket: "Shoprite", image: carrots },
+  { id: "p130", name: "Organic Carrots Bunch", category: "Fresh Produce", price: 160, unit: "1kg", supermarket: "Chandarana", image: carrots },
+  { id: "p131", name: "Fresh Tilapia Fish", category: "Fresh Produce", price: 550, unit: "1kg", supermarket: "Naivas", image: fish },
+  { id: "p132", name: "Nile Perch Fillet", category: "Fresh Produce", price: 780, originalPrice: 900, unit: "1kg", supermarket: "Carrefour", image: fish },
+  { id: "p133", name: "Beef Steak Prime Cut", category: "Fresh Produce", price: 720, unit: "1kg", supermarket: "Naivas", image: beef },
+  { id: "p134", name: "Beef Mince Choice", category: "Fresh Produce", price: 640, unit: "1kg", supermarket: "Quickmart", image: beef },
+
+  // Drinks
+  { id: "p135", name: "Delmonte Orange Juice", category: "Beverages", price: 260, unit: "1L", supermarket: "Naivas", image: juice },
+  { id: "p136", name: "Minute Maid Mango Juice", category: "Beverages", price: 210, originalPrice: 250, unit: "1L", supermarket: "Quickmart", image: juice },
+  { id: "p137", name: "Dasani Mineral Water", category: "Beverages", price: 60, unit: "500ml", supermarket: "Naivas", image: water },
+  { id: "p138", name: "Keringet Water 5L", category: "Beverages", price: 240, unit: "5L", supermarket: "Carrefour", image: water },
+  { id: "p139", name: "Four Cousins Sweet Red Wine", category: "Beverages", price: 1180, unit: "750ml", supermarket: "Chandarana", image: wine },
+  { id: "p140", name: "Nederburg Cabernet Sauvignon", category: "Beverages", price: 2450, originalPrice: 2800, unit: "750ml", supermarket: "Carrefour", image: wine },
+
+  // Small appliances (mid)
+  { id: "p141", name: "Ramtons 2-Slice Toaster", category: "Electronics", price: 2890, unit: "1pc", supermarket: "Naivas", image: iron },
+  { id: "p142", name: "Philips Steam Iron Box", category: "Electronics", price: 3450, originalPrice: 3900, unit: "1pc", supermarket: "Carrefour", image: iron },
+  { id: "p143", name: "Von Blender 1.5L", category: "Electronics", price: 4290, unit: "1pc", supermarket: "Quickmart", image: blender },
+  { id: "p144", name: "Kenwood Blender Pro", category: "Electronics", price: 8990, originalPrice: 10500, unit: "1pc", supermarket: "Carrefour", image: blender },
+  { id: "p145", name: "Ramtons 20L Microwave", category: "Electronics", price: 8990, unit: "1pc", supermarket: "Naivas", image: microwave },
+  { id: "p146", name: "Samsung 30L Grill Microwave", category: "Electronics", price: 18900, originalPrice: 22000, unit: "1pc", supermarket: "Carrefour", image: microwave },
+  { id: "p147", name: "Ramtons Air Fryer 4.5L", category: "Electronics", price: 12500, unit: "1pc", supermarket: "Quickmart", image: airfryer },
+  { id: "p148", name: "Philips XL Air Fryer 6.2L", category: "Electronics", price: 24900, originalPrice: 28900, unit: "1pc", supermarket: "Carrefour", image: airfryer },
+
+  // Cookware & gas
+  { id: "p149", name: "Karibu 6-Piece Cookware Set", category: "Home & Living", price: 4890, unit: "6pcs", supermarket: "Naivas", image: cookware },
+  { id: "p150", name: "Tefal Stainless Cookware Set", category: "Home & Living", price: 18900, originalPrice: 22900, unit: "8pcs", supermarket: "Carrefour", image: cookware },
+  { id: "p151", name: "Pro Gas 6kg Cylinder Refill", category: "Home & Living", price: 1350, unit: "6kg", supermarket: "Naivas", image: gas },
+  { id: "p152", name: "K-Gas 13kg Cylinder Refill", category: "Home & Living", price: 3350, unit: "13kg", supermarket: "Quickmart", image: gas },
+  { id: "p153", name: "Vitafoam Single Mattress 4\"", category: "Home & Living", price: 6890, unit: "3x6ft", supermarket: "Naivas", image: mattress },
+  { id: "p154", name: "Superfoam Orthopaedic Mattress 8\"", category: "Home & Living", price: 24900, originalPrice: 28500, unit: "5x6ft", supermarket: "Carrefour", image: mattress },
+
+  // Large appliances (premium)
+  { id: "p155", name: "Hisense 43\" Smart TV", category: "Electronics", price: 32900, unit: "1pc", supermarket: "Naivas", image: tv },
+  { id: "p156", name: "Samsung 55\" 4K UHD TV", category: "Electronics", price: 68900, originalPrice: 79900, unit: "1pc", supermarket: "Carrefour", image: tv },
+  { id: "p157", name: "LG 65\" OLED Smart TV", category: "Electronics", price: 189000, unit: "1pc", supermarket: "Carrefour", image: tv },
+  { id: "p158", name: "Hisense 200L Double Door Fridge", category: "Electronics", price: 34900, unit: "1pc", supermarket: "Naivas", image: fridge },
+  { id: "p159", name: "Samsung 470L Side-by-Side Fridge", category: "Electronics", price: 124900, originalPrice: 139000, unit: "1pc", supermarket: "Carrefour", image: fridge },
+  { id: "p160", name: "LG 8kg Front Load Washer", category: "Electronics", price: 68900, unit: "1pc", supermarket: "Carrefour", image: washer },
+  { id: "p161", name: "Bosch 9kg Serie 6 Washer", category: "Electronics", price: 129000, originalPrice: 149000, unit: "1pc", supermarket: "Carrefour", image: washer },
+
+  // Phones & laptops
+  { id: "p162", name: "Nokia 105 Basic Phone", category: "Electronics", price: 1990, unit: "1pc", supermarket: "Quickmart", image: phone },
+  { id: "p163", name: "Tecno Spark 20 Smartphone", category: "Electronics", price: 18900, unit: "1pc", supermarket: "Naivas", image: phone },
+  { id: "p164", name: "Samsung Galaxy A54 5G", category: "Electronics", price: 52900, originalPrice: 58900, unit: "1pc", supermarket: "Carrefour", image: phone },
+  { id: "p165", name: "iPhone 15 128GB", category: "Electronics", price: 148900, unit: "1pc", supermarket: "Carrefour", image: phone },
+  { id: "p166", name: "HP 250 G9 Laptop i3", category: "Electronics", price: 54900, unit: "1pc", supermarket: "Naivas", image: laptop },
+  { id: "p167", name: "Lenovo IdeaPad 3 i5", category: "Electronics", price: 78900, originalPrice: 89000, unit: "1pc", supermarket: "Carrefour", image: laptop },
+  { id: "p168", name: "MacBook Air M3 13\"", category: "Electronics", price: 189000, unit: "1pc", supermarket: "Carrefour", image: laptop },
 ];
 
 export const offers: Offer[] = [

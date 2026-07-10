@@ -17,6 +17,67 @@ export const Route = createFileRoute("/products")({
 
 const chains = ["All", "Naivas", "Quickmart", "Shoprite", "Carrefour", "Chandarana"];
 
+const BRAND_ALIASES: Record<string, string> = {
+  "coca-cola": "Coca-Cola",
+  "coca": "Coca-Cola",
+  "head": "Head & Shoulders",
+  "johnnie": "Johnnie Walker",
+  "kenya": "Kenya Brand",
+  "farm": "Farm Fresh",
+  "fresh": "Fresh Pick",
+  "premium": "Premium",
+  "ripe": "Fresh Pick",
+  "vine": "Fresh Pick",
+  "whole": "Bakers Choice",
+  "soft": "Softcare",
+  "butter": "Bakers Choice",
+  "golden": "Golden",
+  "moisturising": "Beauty Care",
+  "stainless": "HomePro",
+  "portable": "AudioPro",
+  "usb-c": "TechPro",
+  "in-store": "Sokoni Services",
+  "free": "Sokoni Services",
+  "home": "Sokoni Services",
+  "loyalty": "Sokoni Services",
+  "gift": "Sokoni Services",
+  "bill": "Sokoni Services",
+  "airtime": "Sokoni Services",
+  "m-pesa": "M-Pesa",
+  "photocopy": "Sokoni Services",
+};
+
+function getBrand(name: string): string {
+  const first = name.split(/\s+/)[0] ?? "";
+  const key = first.toLowerCase().replace(/[^a-z0-9-]/g, "");
+  if (BRAND_ALIASES[key]) return BRAND_ALIASES[key];
+  // Two-word brands for common patterns
+  const two = name.split(/\s+/).slice(0, 2).join(" ");
+  if (/^(Blue Band|Red Bull|Four Cousins|Farmer's Choice|Golden Morn|Bio Yogurt)/i.test(two)) return two;
+  return first || "Generic";
+}
+
+const BRAND_PALETTE = [
+  { bg: "#E63946", fg: "#ffffff" },
+  { bg: "#1D3557", fg: "#ffffff" },
+  { bg: "#F4A261", fg: "#1a1a1a" },
+  { bg: "#2A9D8F", fg: "#ffffff" },
+  { bg: "#264653", fg: "#ffffff" },
+  { bg: "#E9C46A", fg: "#1a1a1a" },
+  { bg: "#8338EC", fg: "#ffffff" },
+  { bg: "#FB5607", fg: "#ffffff" },
+  { bg: "#3A86FF", fg: "#ffffff" },
+  { bg: "#06A77D", fg: "#ffffff" },
+  { bg: "#D62828", fg: "#ffffff" },
+  { bg: "#5F0F40", fg: "#ffffff" },
+];
+
+function brandColor(brand: string): { bg: string; fg: string } {
+  let hash = 0;
+  for (let i = 0; i < brand.length; i++) hash = (hash * 31 + brand.charCodeAt(i)) >>> 0;
+  return BRAND_PALETTE[hash % BRAND_PALETTE.length];
+}
+
 const PRICE_MIN = 0;
 const PRICE_MAX = Math.max(...products.map((p) => p.price));
 

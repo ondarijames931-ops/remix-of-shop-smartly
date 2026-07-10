@@ -109,7 +109,9 @@ export const supermarkets: Supermarket[] = [
 
 export const categories = [
   "Fresh Produce", "Groceries", "Beverages", "Household", "Bakery", "Electronics", "Personal Care",
+  "Dairy", "Meat", "Breakfast", "Baby", "Home & Living", "Services",
 ];
+
 
 export const products: Product[] = [
   { id: "p1", name: "Ajab Wheat Flour", category: "Groceries", price: 175, originalPrice: 210, unit: "2kg", supermarket: "Naivas", image: flour },

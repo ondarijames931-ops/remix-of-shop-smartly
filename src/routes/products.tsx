@@ -157,6 +157,8 @@ function ProductsPage() {
         <div className="mt-4 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {filtered.map((p) => {
             const off = p.originalPrice ? Math.round((1 - p.price / p.originalPrice) * 100) : 0;
+            const brand = getBrand(p.name);
+            const brandStyle = brandColor(brand);
             return (
               <div key={p.id} className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-card transition hover:-translate-y-1 hover:shadow-glow">
                 <div className="relative aspect-square overflow-hidden bg-secondary/40">
@@ -168,12 +170,27 @@ function ProductsPage() {
                     height={512}
                     className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                   />
+                  <span
+                    className="absolute left-3 top-3 max-w-[70%] truncate rounded-md px-2 py-1 text-[10px] font-bold uppercase tracking-wider shadow-card ring-1 ring-white/40 backdrop-blur"
+                    style={{ background: brandStyle.bg, color: brandStyle.fg }}
+                    title={`Brand: ${brand}`}
+                  >
+                    {brand}
+                  </span>
                   {off > 0 && (
                     <span className="absolute right-3 top-3 rounded-full bg-success px-2.5 py-1 text-xs font-bold text-success-foreground shadow-card">-{off}%</span>
                   )}
                 </div>
                 <div className="flex flex-1 flex-col p-5">
-                  <h3 className="line-clamp-2 text-base font-semibold leading-tight">{p.name}</h3>
+                  <div className="flex items-center gap-2">
+                    <span
+                      className="inline-block h-2 w-2 rounded-full"
+                      style={{ background: brandStyle.bg }}
+                      aria-hidden
+                    />
+                    <span className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">{brand}</span>
+                  </div>
+                  <h3 className="mt-1 line-clamp-2 text-base font-semibold leading-tight">{p.name}</h3>
                   <p className="mt-1 text-xs text-muted-foreground">{p.category} · {p.unit}</p>
                   <div className="mt-auto pt-4">
                     <div className="flex items-baseline gap-2">

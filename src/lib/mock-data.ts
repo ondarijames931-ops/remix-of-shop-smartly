@@ -109,7 +109,9 @@ export const supermarkets: Supermarket[] = [
 
 export const categories = [
   "Fresh Produce", "Groceries", "Beverages", "Household", "Bakery", "Electronics", "Personal Care",
+  "Dairy", "Meat", "Breakfast", "Baby", "Home & Living", "Services",
 ];
+
 
 export const products: Product[] = [
   { id: "p1", name: "Ajab Wheat Flour", category: "Groceries", price: 175, originalPrice: 210, unit: "2kg", supermarket: "Naivas", image: flour },
@@ -316,7 +318,74 @@ export const products: Product[] = [
   { id: "p166", name: "HP 250 G9 Laptop i3", category: "Electronics", price: 54900, unit: "1pc", supermarket: "Naivas", image: laptop },
   { id: "p167", name: "Lenovo IdeaPad 3 i5", category: "Electronics", price: 78900, originalPrice: 89000, unit: "1pc", supermarket: "Carrefour", image: laptop },
   { id: "p168", name: "MacBook Air M3 13\"", category: "Electronics", price: 189000, unit: "1pc", supermarket: "Carrefour", image: laptop },
+
+  // Breakfast
+  { id: "p169", name: "Weetabix Original 24pk", category: "Breakfast", price: 690, unit: "430g", supermarket: "Naivas", image: cornflakes },
+  { id: "p170", name: "Weetabix Mini Chocolate", category: "Breakfast", price: 520, unit: "450g", supermarket: "Quickmart", image: cornflakes },
+  { id: "p171", name: "Quaker Oats Quick Cook", category: "Breakfast", price: 480, unit: "1kg", supermarket: "Carrefour", image: cornflakes },
+  { id: "p172", name: "Jungle Oats 1kg", category: "Breakfast", price: 390, unit: "1kg", supermarket: "Shoprite", image: cornflakes },
+  { id: "p173", name: "Golden Morn Cereal", category: "Breakfast", price: 340, unit: "500g", supermarket: "Naivas", image: cornflakes },
+  { id: "p174", name: "Milo Chocolate Malt Drink", category: "Breakfast", price: 520, originalPrice: 600, unit: "500g", supermarket: "Carrefour", image: coffee },
+
+  // Dairy
+  { id: "p175", name: "Brookside Fresh Milk 1L", category: "Dairy", price: 130, unit: "1L", supermarket: "Naivas", image: milk },
+  { id: "p176", name: "Ilara Whole Milk 1L", category: "Dairy", price: 125, unit: "1L", supermarket: "Quickmart", image: milk },
+  { id: "p177", name: "KCC Gold Butter 500g", category: "Dairy", price: 560, unit: "500g", supermarket: "Carrefour", image: margarine },
+  { id: "p178", name: "Daima Yoghurt Strawberry", category: "Dairy", price: 220, unit: "500ml", supermarket: "Naivas", image: yogurt },
+  { id: "p179", name: "Bio Yoghurt Vanilla", category: "Dairy", price: 260, unit: "500ml", supermarket: "Chandarana", image: yogurt },
+  { id: "p180", name: "Brown's Cheddar Cheese", category: "Dairy", price: 890, originalPrice: 990, unit: "250g", supermarket: "Carrefour", image: cheese },
+  { id: "p181", name: "Mozzarella Cheese Block", category: "Dairy", price: 780, unit: "250g", supermarket: "Chandarana", image: cheese },
+
+  // Meat
+  { id: "p182", name: "Whole Chicken Fresh", category: "Meat", price: 780, unit: "1.4kg", supermarket: "Naivas", image: chicken },
+  { id: "p183", name: "Chicken Drumsticks", category: "Meat", price: 520, unit: "1kg", supermarket: "Quickmart", image: chicken },
+  { id: "p184", name: "Farmer's Choice Sausages", category: "Meat", price: 420, unit: "500g", supermarket: "Carrefour", image: chicken },
+  { id: "p185", name: "Farmer's Choice Bacon", category: "Meat", price: 640, originalPrice: 720, unit: "250g", supermarket: "Naivas", image: chicken },
+  { id: "p186", name: "Goat Meat Fresh Cut", category: "Meat", price: 890, unit: "1kg", supermarket: "Quickmart", image: beef },
+  { id: "p187", name: "Pork Chops", category: "Meat", price: 780, unit: "1kg", supermarket: "Carrefour", image: beef },
+  { id: "p188", name: "Prawns Frozen Pack", category: "Meat", price: 1450, originalPrice: 1690, unit: "500g", supermarket: "Chandarana", image: fish },
+
+  // Baby
+  { id: "p189", name: "Cerelac Wheat Baby Cereal", category: "Baby", price: 690, unit: "400g", supermarket: "Naivas", image: cornflakes },
+  { id: "p190", name: "Nan Optipro Infant Formula", category: "Baby", price: 2450, unit: "400g", supermarket: "Carrefour", image: diapers },
+  { id: "p191", name: "Johnson's Baby Powder", category: "Baby", price: 340, unit: "200g", supermarket: "Naivas", image: shampoo },
+  { id: "p192", name: "Johnson's Baby Shampoo", category: "Baby", price: 420, unit: "300ml", supermarket: "Quickmart", image: shampoo },
+  { id: "p193", name: "Baby Wipes Sensitive 80pk", category: "Baby", price: 290, unit: "80pcs", supermarket: "Carrefour", image: toiletpaper },
+
+  // Household extras
+  { id: "p194", name: "Harpic Toilet Cleaner", category: "Household", price: 320, unit: "500ml", supermarket: "Naivas", image: detergent },
+  { id: "p195", name: "Dettol Antiseptic 500ml", category: "Household", price: 560, unit: "500ml", supermarket: "Carrefour", image: detergent },
+  { id: "p196", name: "Jik Bleach 750ml", category: "Household", price: 180, unit: "750ml", supermarket: "Quickmart", image: detergent },
+  { id: "p197", name: "Mortein Insect Spray", category: "Household", price: 490, unit: "300ml", supermarket: "Naivas", image: detergent },
+  { id: "p198", name: "Doom Cockroach Killer", category: "Household", price: 380, unit: "300ml", supermarket: "Shoprite", image: detergent },
+  { id: "p199", name: "Kimbo Cooking Fat 2kg", category: "Groceries", price: 780, unit: "2kg", supermarket: "Naivas", image: oil },
+  { id: "p200", name: "Blueband Original 1kg", category: "Groceries", price: 690, originalPrice: 790, unit: "1kg", supermarket: "Carrefour", image: margarine },
+
+  // Beverages extras
+  { id: "p201", name: "Stoney Tangawizi 500ml", category: "Beverages", price: 90, unit: "500ml", supermarket: "Naivas", image: cola },
+  { id: "p202", name: "Fanta Orange 2L", category: "Beverages", price: 220, unit: "2L", supermarket: "Quickmart", image: cola },
+  { id: "p203", name: "Red Bull Energy Drink", category: "Beverages", price: 320, unit: "250ml", supermarket: "Carrefour", image: cola },
+  { id: "p204", name: "Monster Energy Original", category: "Beverages", price: 380, unit: "500ml", supermarket: "Chandarana", image: cola },
+  { id: "p205", name: "Johnnie Walker Black 750ml", category: "Beverages", price: 4890, originalPrice: 5490, unit: "750ml", supermarket: "Carrefour", image: wine },
+  { id: "p206", name: "Kenya Cane 750ml", category: "Beverages", price: 1290, unit: "750ml", supermarket: "Naivas", image: wine },
+
+  // Services
+  { id: "p207", name: "M-Pesa Deposit & Withdrawal", category: "Services", price: 0, unit: "at till", supermarket: "Naivas", image: phone },
+  { id: "p208", name: "M-Pesa Agent Services", category: "Services", price: 0, unit: "at till", supermarket: "Quickmart", image: phone },
+  { id: "p209", name: "Home Delivery within 5km", category: "Services", price: 200, unit: "per order", supermarket: "Naivas", image: gas },
+  { id: "p210", name: "Same-Day Delivery Nairobi", category: "Services", price: 350, unit: "per order", supermarket: "Carrefour", image: gas },
+  { id: "p211", name: "Free Delivery Over KES 5,000", category: "Services", price: 0, unit: "conditional", supermarket: "Chandarana", image: gas },
+  { id: "p212", name: "Naivas Loyalty Card Signup", category: "Services", price: 0, unit: "free", supermarket: "Naivas", image: notebook },
+  { id: "p213", name: "Quickmart Beba Points Card", category: "Services", price: 0, unit: "free", supermarket: "Quickmart", image: notebook },
+  { id: "p214", name: "Carrefour MyCLUB Membership", category: "Services", price: 0, unit: "free", supermarket: "Carrefour", image: notebook },
+  { id: "p215", name: "Gift Card KES 1,000", category: "Services", price: 1000, unit: "voucher", supermarket: "Naivas", image: notebook },
+  { id: "p216", name: "Gift Card KES 5,000", category: "Services", price: 5000, unit: "voucher", supermarket: "Carrefour", image: notebook },
+  { id: "p217", name: "Bill Payment (KPLC, Water, DStv)", category: "Services", price: 0, unit: "at till", supermarket: "Naivas", image: phone },
+  { id: "p218", name: "Airtime Top-Up All Networks", category: "Services", price: 100, unit: "min KES 100", supermarket: "Quickmart", image: phone },
+  { id: "p219", name: "Photocopy & Printing Service", category: "Services", price: 20, unit: "per page", supermarket: "Chandarana", image: notebook },
+  { id: "p220", name: "In-Store Butchery Custom Cut", category: "Services", price: 0, unit: "per order", supermarket: "Naivas", image: beef },
 ];
+
 
 export const offers: Offer[] = [
   { id: "o1", title: "Weekend Fresh Deals", supermarket: "Naivas", description: "Up to 30% off fresh produce, meat and dairy every Saturday & Sunday.", discount: "30% OFF", validUntil: "Every weekend", color: "from-blue-600 to-cyan-500" },

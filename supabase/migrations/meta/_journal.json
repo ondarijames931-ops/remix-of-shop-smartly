@@ -1,0 +1,20 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1786113102039,
+      "tag": "0000_aromatic_mulholland_black",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1786113480206,
+      "tag": "0001_opposite_doctor_spectrum",
+      "breakpoints": true
+    }
+  ]
+}

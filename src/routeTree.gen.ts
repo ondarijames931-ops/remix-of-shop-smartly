@@ -9,19 +9,14 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as SupermarketsRouteImport } from './routes/supermarkets'
-import { Route as ProductsRouteImport } from './routes/products'
-import { Route as OffersRouteImport } from './routes/offers'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as OffersRouteImport } from './routes/offers'
+import { Route as ProductsRouteImport } from './routes/products'
+import { Route as SupermarketsRouteImport } from './routes/supermarkets'
 
-const SupermarketsRoute = SupermarketsRouteImport.update({
-  id: '/supermarkets',
-  path: '/supermarkets',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProductsRoute = ProductsRouteImport.update({
-  id: '/products',
-  path: '/products',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OffersRoute = OffersRouteImport.update({
@@ -29,9 +24,14 @@ const OffersRoute = OffersRouteImport.update({
   path: '/offers',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const ProductsRoute = ProductsRouteImport.update({
+  id: '/products',
+  path: '/products',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SupermarketsRoute = SupermarketsRouteImport.update({
+  id: '/supermarkets',
+  path: '/supermarkets',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -71,18 +71,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/supermarkets': {
-      id: '/supermarkets'
-      path: '/supermarkets'
-      fullPath: '/supermarkets'
-      preLoaderRoute: typeof SupermarketsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/products': {
-      id: '/products'
-      path: '/products'
-      fullPath: '/products'
-      preLoaderRoute: typeof ProductsRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/offers': {
@@ -92,11 +85,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof OffersRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/products': {
+      id: '/products'
+      path: '/products'
+      fullPath: '/products'
+      preLoaderRoute: typeof ProductsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/supermarkets': {
+      id: '/supermarkets'
+      path: '/supermarkets'
+      fullPath: '/supermarkets'
+      preLoaderRoute: typeof SupermarketsRouteImport
       parentRoute: typeof rootRouteImport
     }
   }

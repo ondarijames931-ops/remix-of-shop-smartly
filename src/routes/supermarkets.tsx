@@ -36,7 +36,6 @@ function SupermarketsPage() {
     [city],
   );
 
-  // Load Google Maps JS with async callback
   useEffect(() => {
     const key = import.meta.env.VITE_LOVABLE_CONNECTOR_GOOGLE_MAPS_BROWSER_KEY;
     const channel = import.meta.env.VITE_LOVABLE_CONNECTOR_GOOGLE_MAPS_TRACKING_ID;
@@ -55,7 +54,6 @@ function SupermarketsPage() {
     s.defer = true;
     s.dataset.sokoniGmaps = "1";
     document.head.appendChild(s);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function initMap() {

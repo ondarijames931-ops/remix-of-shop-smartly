@@ -9,12 +9,10 @@ export default defineConfig({
     tailwindcss(),
     tsConfigPaths(),
     tanstackStart({
-      server: {
-        // Redirects TanStack Start's bundled server entry to your custom SSR wrapper
-        entry: "server", 
+      spa: {
+        enabled: true, // Tells TanStack Start to generate the static SPA shell index.html
       },
     }),
-    // React's Vite plugin must always be placed after the TanStack Start plugin
     viteReact(),
   ],
 });

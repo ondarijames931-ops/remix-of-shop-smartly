@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { SiteHeader, SiteFooter } from "@/components/site-header";
-import { products, categories, formatKES } from "@/lib/mock-data";
+import { products, categories, formatKES, type Product } from "@/lib/mock-data";
 
 export const Route = createFileRoute("/products")({
   head: () => ({
@@ -51,7 +51,6 @@ function getBrand(name: string): string {
   const first = name.split(/\s+/)[0] ?? "";
   const key = first.toLowerCase().replace(/[^a-z0-9-]/g, "");
   if (BRAND_ALIASES[key]) return BRAND_ALIASES[key];
-  // Two-word brands for common patterns
   const two = name.split(/\s+/).slice(0, 2).join(" ");
   if (/^(Blue Band|Red Bull|Four Cousins|Farmer's Choice|Golden Morn|Bio Yogurt)/i.test(two)) return two;
   return first || "Generic";
@@ -81,12 +80,56 @@ function brandColor(brand: string): { bg: string; fg: string } {
 const PRICE_MIN = 0;
 const PRICE_MAX = Math.max(...products.map((p) => p.price));
 
+interface CartItem extends Product {
+  qty: number;
+}
+
 function ProductsPage() {
   const [q, setQ] = useState("");
   const [cat, setCat] = useState<string>("All");
   const [chain, setChain] = useState<string>("All");
   const [minPrice, setMinPrice] = useState<number>(PRICE_MIN);
   const [maxPrice, setMaxPrice] = useState<number>(PRICE_MAX);
+
+  // Cart & Checkout overlay state (isolated to avoid changing global layouts)
+  const [cart, setCart] = useState<CartItem[]>([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const [checkoutStep, setCheckoutStep] = useState<"review" | "mpesa" | "success">("review");
+  const [phone, setPhone] = useState("");
+  const [isProcessing, setIsProcessing] = useState(false);
+
+  const cartTotal = useMemo(() => cart.reduce((sum, item) => sum + item.price * item.qty, 0), [cart]);
+  const cartCount = useMemo(() => cart.reduce((sum, item) => sum + item.qty, 0), [cart]);
+
+  const addToCart = (product: Product) => {
+    setCart((prev) => {
+      const existing = prev.find((item) => item.id === product.id);
+      if (existing) {
+        return prev.map((item) => item.id === product.id ? { ...item, qty: item.qty + 1 } : item);
+      }
+      return [...prev, { ...product, qty: 1 }];
+    });
+    setIsCartOpen(true);
+  };
+
+  const updateQty = (id: string, delta: number) => {
+    setCart((prev) => prev.map((item) => {
+      if (item.id === id) {
+        const newQty = item.qty + delta;
+        return newQty > 0 ? { ...item, qty: newQty } : null;
+      }
+      return item;
+    }).filter(Boolean) as CartItem[]);
+  };
+
+  const handleMpesaSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsProcessing(true);
+    setTimeout(() => {
+      setIsProcessing(false);
+      setCheckoutStep("success");
+    }, 2000);
+  };
 
   const filtered = useMemo(() => {
     return products.filter((p) => {
@@ -108,8 +151,159 @@ function ProductsPage() {
     (minPrice !== PRICE_MIN || maxPrice !== PRICE_MAX ? 1 : 0);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
       <SiteHeader />
+
+      {/* Floating Cart Trigger */}
+      <button 
+        onClick={() => setIsCartOpen(true)}
+        className="fixed bottom-8 right-8 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-glow hover:scale-105 transition-transform"
+      >
+        {cartCount > 0 && (
+          <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-destructive text-[10px] font-bold text-destructive-foreground">
+            {cartCount}
+          </span>
+        )}
+        🛒
+      </button>
+
+      {/* Slide-over Cart & Checkout Drawer */}
+      {isCartOpen && (
+        <div className="fixed inset-0 z-50 flex justify-end bg-black/60 backdrop-blur-sm transition-opacity">
+          <div className="w-full max-w-md bg-card p-6 shadow-2xl h-full flex flex-col animate-in slide-in-from-right duration-300">
+            <div className="flex items-center justify-between border-b border-border pb-4">
+              <h2 className="font-display text-xl font-bold">
+                {checkoutStep === "review" ? "Your Cart" : checkoutStep === "mpesa" ? "M-Pesa Checkout" : "Order Confirmed"}
+              </h2>
+              <button 
+                onClick={() => {
+                  setIsCartOpen(false);
+                  setTimeout(() => setCheckoutStep("review"), 300);
+                }}
+                className="text-muted-foreground hover:text-foreground"
+              >
+                ✕
+              </button>
+            </div>
+
+            <div className="flex-1 overflow-y-auto py-6">
+              {checkoutStep === "review" && (
+                <div className="flex flex-col gap-4">
+                  {cart.length === 0 ? (
+                    <p className="text-center text-muted-foreground py-12">Your cart is empty. Add products to get started.</p>
+                  ) : (
+                    cart.map((item) => (
+                      <div key={item.id} className="flex items-center gap-4 border-b border-border/50 pb-4">
+                        <div className="h-16 w-16 overflow-hidden rounded-lg bg-secondary/40 shrink-0">
+                          <img src={item.image} alt={item.name} className="h-full w-full object-cover" />
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="text-sm font-semibold leading-tight">{item.name}</h4>
+                          <p className="text-xs text-muted-foreground mt-0.5">{item.supermarket}</p>
+                          <div className="mt-2 flex items-center justify-between">
+                            <div className="flex items-center gap-2 border border-border rounded-md px-2 py-0.5 text-xs">
+                              <button onClick={() => updateQty(item.id, -1)}>-</button>
+                              <span className="font-medium">{item.qty}</span>
+                              <button onClick={() => updateQty(item.id, 1)}>+</button>
+                            </div>
+                            <span className="font-semibold text-primary text-sm">{formatKES(item.price * item.qty)}</span>
+                          </div>
+                        </div>
+                      </div>
+                    ))
+                  )}
+                </div>
+              )}
+
+              {checkoutStep === "mpesa" && (
+                <form onSubmit={handleMpesaSubmit} className="flex flex-col gap-6">
+                  <div className="rounded-xl border border-primary/20 bg-primary/5 p-4 text-center">
+                    <p className="text-sm text-muted-foreground">Total Amount to Pay</p>
+                    <p className="font-display text-3xl font-bold text-primary">{formatKES(cartTotal)}</p>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium">M-Pesa Phone Number</label>
+                    <input 
+                      type="tel" 
+                      required
+                      placeholder="e.g. 0712345678"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      className="w-full rounded-lg border border-input bg-background px-4 py-3 text-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                    />
+                    <p className="text-xs text-muted-foreground">An STK push prompt will be sent to your phone.</p>
+                  </div>
+                </form>
+              )}
+
+              {checkoutStep === "success" && (
+                <div className="flex h-full flex-col items-center justify-center text-center">
+                  <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-success/20 text-success text-2xl">
+                    ✓
+                  </div>
+                  <h3 className="font-display text-2xl font-bold">STK Push Sent</h3>
+                  <p className="mt-2 text-muted-foreground text-sm max-w-[280px]">
+                    Enter your M-Pesa PIN on your phone to complete payment of <strong className="text-foreground">{formatKES(cartTotal)}</strong>.
+                  </p>
+                </div>
+              )}
+            </div>
+
+            <div className="border-t border-border pt-4">
+              {checkoutStep === "review" && cart.length > 0 && (
+                <>
+                  <div className="mb-4 flex justify-between font-bold text-base">
+                    <span>Subtotal</span>
+                    <span className="text-primary">{formatKES(cartTotal)}</span>
+                  </div>
+                  <button 
+                    onClick={() => setCheckoutStep("mpesa")}
+                    className="w-full rounded-full bg-primary py-3.5 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition shadow-glow"
+                  >
+                    Proceed to Checkout
+                  </button>
+                </>
+              )}
+
+              {checkoutStep === "mpesa" && (
+                <div className="flex gap-3">
+                  <button 
+                    type="button"
+                    onClick={() => setCheckoutStep("review")}
+                    className="w-1/3 rounded-full border border-input py-3.5 text-sm font-semibold hover:bg-secondary transition"
+                  >
+                    Back
+                  </button>
+                  <button 
+                    type="button"
+                    onClick={handleMpesaSubmit}
+                    disabled={isProcessing}
+                    className="w-2/3 flex items-center justify-center rounded-full bg-success py-3.5 text-sm font-semibold text-success-foreground hover:bg-success/90 transition disabled:opacity-70 shadow-card"
+                  >
+                    {isProcessing ? "Connecting..." : "Pay with M-Pesa"}
+                  </button>
+                </div>
+              )}
+              
+              {checkoutStep === "success" && (
+                <button 
+                  type="button"
+                  onClick={() => {
+                    setCart([]);
+                    setIsCartOpen(false);
+                    setTimeout(() => setCheckoutStep("review"), 300);
+                  }}
+                  className="w-full rounded-full bg-primary py-3.5 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition"
+                >
+                  Done & Close
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
       <section className="border-b border-border/60 bg-gradient-hero py-14 text-white">
         <div className="mx-auto max-w-7xl px-6">
           <p className="text-xs font-semibold uppercase tracking-widest text-cyan-200">Catalog</p>
@@ -253,12 +447,21 @@ function ProductsPage() {
                   </div>
                   <h3 className="mt-1 line-clamp-2 text-base font-semibold leading-tight">{p.name}</h3>
                   <p className="mt-1 text-xs text-muted-foreground">{p.category} · {p.unit}</p>
-                  <div className="mt-auto pt-4">
-                    <div className="flex items-baseline gap-2">
-                      <span className="font-display text-xl font-bold text-primary">{formatKES(p.price)}</span>
-                      {p.originalPrice && <span className="text-sm text-muted-foreground line-through">{formatKES(p.originalPrice)}</span>}
+                  <div className="mt-auto pt-4 flex items-center justify-between">
+                    <div>
+                      <div className="flex items-baseline gap-2">
+                        <span className="font-display text-xl font-bold text-primary">{formatKES(p.price)}</span>
+                        {p.originalPrice && <span className="text-sm text-muted-foreground line-through">{formatKES(p.originalPrice)}</span>}
+                      </div>
+                      <p className="mt-1 text-xs font-medium text-muted-foreground">at {p.supermarket}</p>
                     </div>
-                    <p className="mt-1 text-xs font-medium text-muted-foreground">at {p.supermarket}</p>
+                    <button
+                      type="button"
+                      onClick={() => addToCart(p)}
+                      className="rounded-full bg-primary/10 px-3.5 py-2 text-xs font-semibold text-primary hover:bg-primary hover:text-primary-foreground transition"
+                    >
+                      + Buy
+                    </button>
                   </div>
                 </div>
               </div>

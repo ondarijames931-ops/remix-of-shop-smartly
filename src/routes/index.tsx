@@ -9,6 +9,7 @@ export const Route = createFileRoute("/")({
 
 function Home() {
   const featured = products.filter((p) => p.originalPrice).slice(0, 4);
+
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />

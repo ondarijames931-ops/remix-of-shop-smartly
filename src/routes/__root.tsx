@@ -73,14 +73,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Sokoni — Window shop Kenya's supermarkets" },
+      { title: "myKīla — Yako Yote, Mahali Pamoja" },
       { name: "description", content: "Browse. Love. Save\nShop from your comfort zone before shopping it" },
-      { name: "author", content: "Sokoni" },
-      { property: "og:title", content: "Sokoni — Window shop Kenya's supermarkets" },
+      { name: "author", content: "myKila" },
+      { property: "og:title", content: "myKīla — Yako Yote, Mahali Pamoja" },
       { property: "og:description", content: "Browse. Love. Save\nShop from your comfort zone before shopping it" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Sokoni — Window shop Kenya's supermarkets" },
+      { name: "twitter:title", content: "myKīla — Yako Yote, Mahali Pamoja" },
       { name: "twitter:description", content: "Browse. Love. Save\nShop from your comfort zone before shopping it" },
     ],
     links: [

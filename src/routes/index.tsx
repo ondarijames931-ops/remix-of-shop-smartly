@@ -21,37 +21,49 @@ function Home() {
         <div className="relative mx-auto max-w-7xl px-6 pb-24 pt-20 sm:pt-28 md:pb-32">
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-widest text-white/90 backdrop-blur">
-              <span className="h-1.5 w-1.5 rounded-full bg-cyan-300" /> Kenya · Nairobi · Mombasa · Kisumu
+             <span className="h-1.5 w-1.5 rounded-full bg-cyan-300" /> Yako Yote, Mahali Pamoja
             </span>
             <h1 className="mt-5 font-display text-5xl font-bold leading-[1.05] text-white sm:text-6xl md:text-7xl">
-              Window shop Kenya's supermarkets.
-            </h1>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/85">
-              Peek inside Naivas, Quickmart, Shoprite and more. Compare prices, catch the day's discounts, and find the store closest to you — before you leave the house.
-            </p>
+  Everything Kenya Needs. One Search.
+</h1>
+           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/85">
+  Discover products, businesses, services, government offices, healthcare, places of worship, restaurants, hotels, and more—all across Kenya. Ask Nasha in English, Kiswahili, or Sheng and find exactly what you need.
+</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link to="/products" className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-primary shadow-glow transition hover:scale-[1.02]">
-                Start browsing →
+               Explore Kenya with myKila →
               </Link>
               <Link to="/supermarkets" className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur hover:bg-white/20">
-                Find nearest store
+               Ask Nasha 🤖
               </Link>
             </div>
-            <dl className="mt-12 grid max-w-lg grid-cols-3 gap-6 text-white">
-              {[
-                { k: "8+", v: "Supermarkets" },
-                { k: "500+", v: "Products listed" },
-                { k: "Daily", v: "Fresh offers" },
-              ].map((s) => (
-                <div key={s.v}>
-                  <dt className="font-display text-3xl font-bold">{s.k}</dt>
-                  <dd className="text-xs uppercase tracking-wider text-white/70">{s.v}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-        </div>
-      </section>
+            <dl className="mt-12 grid w-full max-w-3xl grid-cols-3 gap-8 text-white">
+  {[
+    { k: "10,000+", v: "Businesses" },
+    { k: "1M+", v: "Products" },
+    { k: "All", v: "Services" },
+  ].map((s) => (
+    <div key={s.v} className="text-center">
+      <dt className="font-display text-3xl font-bold">
+        {s.k}
+      </dt>
+      <dd className="mt-1 text-xs uppercase tracking-wider text-white/70">
+        {s.v}
+      </dd>
+    </div>
+  ))}
+</dl>
+
+</div>
+
+<div className="relative">
+  <button className="rounded-full bg-blue-600 px-6 py-3 font-semibold text-white shadow-lg hover:bg-blue-700 transition">
+    🤖 Nasha
+  </button>
+</div>
+
+</div>
+</section>
 
       {/* FEATURED DEALS */}
       <section className="mx-auto max-w-7xl px-6 py-16">
@@ -109,7 +121,7 @@ function Home() {
       <section className="mx-auto max-w-7xl px-6 py-16">
         <div>
           <p className="text-xs font-semibold uppercase tracking-widest text-primary-glow">Locations</p>
-          <h2 className="mt-2 font-display text-3xl font-bold sm:text-4xl">Supermarkets near you</h2>
+          <h2 className="mt-2 font-display text-3xl font-bold sm:text-4xl">Near me</h2>
           <p className="mt-2 max-w-xl text-muted-foreground">A quick look at some of the branches on the map. Open the finder for the full interactive experience.</p>
         </div>
         <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -163,6 +175,12 @@ function Home() {
           </div>
         </div>
       </section>
+      {/* Nasha AI Button */}
+<button
+  className="fixed bottom-6 right-6 rounded-full bg-primary text-white px-5 py-4 shadow-lg hover:scale-105 transition"
+>
+  🤖 Nasha
+</button>
 
       <SiteFooter />
     </div>

@@ -6,9 +6,9 @@ import { products, categories, formatKES, type Product } from "@/lib/mock-data";
 export const Route = createFileRoute("/products")({
   head: () => ({
     meta: [
-      { title: "Browse goods & prices — Sokoni" },
+      { title: " Compare prices across Kenya — myKīla" },
       { name: "description", content: "Window shop groceries, fresh produce, household items and more across Kenyan supermarkets with live prices in KES." },
-      { property: "og:title", content: "Browse goods & prices — Sokoni" },
+      { property: "og:title", content: "Compare prices across Kenya — myKīla" },
       { property: "og:description", content: "Compare prices from Naivas, Quickmart, Shoprite and Carrefour." },
     ],
   }),
@@ -36,15 +36,15 @@ const BRAND_ALIASES: Record<string, string> = {
   "stainless": "HomePro",
   "portable": "AudioPro",
   "usb-c": "TechPro",
-  "in-store": "Sokoni Services",
-  "free": "Sokoni Services",
-  "home": "Sokoni Services",
-  "loyalty": "Sokoni Services",
-  "gift": "Sokoni Services",
-  "bill": "Sokoni Services",
-  "airtime": "Sokoni Services",
+  "in-store": "myKila Services",
+  "free": "myKila Services",
+  "home": "myKila Services",
+  "loyalty": "myKila Services",
+  "gift": "myKila Services",
+  "bill": "myKila Services",
+  "airtime": "myKila Services",
   "m-pesa": "M-Pesa",
-  "photocopy": "Sokoni Services",
+  "photocopy": "myKila Services",
 };
 
 function getBrand(name: string): string {
@@ -307,13 +307,13 @@ function ProductsPage() {
       <section className="border-b border-border/60 bg-gradient-hero py-14 text-white">
         <div className="mx-auto max-w-7xl px-6">
           <p className="text-xs font-semibold uppercase tracking-widest text-cyan-200">Catalog</p>
-          <h1 className="mt-2 font-display text-4xl font-bold sm:text-5xl">Browse goods & services</h1>
-          <p className="mt-3 max-w-2xl text-white/85">Every item priced in KES, straight from the shelves of Kenya's biggest chains.</p>
+          <h1 className="mt-2 font-display text-4xl font-bold sm:text-5xl">Compare prices across Kenya</h1>
+          <p className="mt-3 max-w-2xl text-white/85">Find the best prices, nearby stores, daily deals, and essential services—all in one place.</p>
           <div className="mt-6 max-w-xl">
             <input
               value={q}
               onChange={(e) => setQ(e.target.value)}
-              placeholder="Search for milk, rice, detergent..."
+              placeholder="Search for products, stores or services..."
               className="w-full rounded-full border border-white/20 bg-white/10 px-5 py-3 text-white placeholder:text-white/60 backdrop-blur focus:border-white/60 focus:outline-none"
             />
           </div>

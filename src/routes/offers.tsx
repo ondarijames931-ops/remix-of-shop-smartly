@@ -5,9 +5,9 @@ import { offers } from "@/lib/mock-data";
 export const Route = createFileRoute("/offers")({
   head: () => ({
     meta: [
-      { title: "Discounts & offers — Sokoni" },
+      { title: "Discounts & offers — myKīla" },
       { name: "description", content: "Live discounts, weekend deals and loyalty offers from Naivas, Quickmart, Shoprite, Carrefour and Chandarana." },
-      { property: "og:title", content: "Discounts & offers — Sokoni" },
+      { property: "og:title", content: "Discounts & offers — myKīla" },
       { property: "og:description", content: "Never miss a Kenyan supermarket bargain." },
     ],
   }),

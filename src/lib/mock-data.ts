@@ -73,6 +73,7 @@ export type Supermarket = {
   phone: string;
   rating: number;
   tags: string[];
+  
 };
 
 export type Product = {
@@ -93,6 +94,7 @@ export type Offer = {
   description: string;
   discount: string;
   validUntil: string;
+  
   color: string;
 };
 

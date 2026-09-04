@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
 import logo from "@/assets/logo.png";
 
 const nav = [
@@ -8,7 +8,32 @@ const nav = [
   { to: "/supermarkets", label: "Nearby" },
 ] as const;
 
-export function SiteHeader() {
+export function SiteHeader() {  const navigate = useNavigate();
+
+  const handleFindNearMe = () => {
+    if (!navigator.geolocation) {
+      alert("Location is not supported by this browser.");
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const location = {
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+        };
+
+        localStorage.setItem("userLocation", JSON.stringify(location));
+
+        navigate({ to: "/supermarkets" });
+      },
+      (error) => {
+  alert(
+    `Location error.\nCode: ${error.code}\nMessage: ${error.message}`
+  );
+}
+    );
+  };
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
@@ -33,11 +58,15 @@ export function SiteHeader() {
           ))}
         </nav>
         <Link
-          to="/supermarkets"
-          className="inline-flex items-center gap-2 rounded-full bg-gradient-brand px-4 py-2 text-sm font-semibold text-primary-foreground shadow-card transition hover:opacity-95"
-        >
-          Find near me
-        </Link>
+  to="/supermarkets"
+  onClick={(event) => {
+    event.preventDefault();
+    handleFindNearMe();
+  }}
+  className="inline-flex items-center gap-2 rounded-full bg-gradient-brand px-4 py-2 text-sm font-semibold ..."
+>
+  Find near me
+</Link>
       </div>
     </header>
   );

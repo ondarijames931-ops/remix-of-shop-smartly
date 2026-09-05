@@ -17,22 +17,39 @@ export function SiteHeader() {  const navigate = useNavigate();
     }
 
     navigator.geolocation.getCurrentPosition(
-      (position) => {
-        const location = {
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude,
-        };
+  (position) => {
+    const location = {
+      latitude: position.coords.latitude,
+      longitude: position.coords.longitude,
+    };
 
-        localStorage.setItem("userLocation", JSON.stringify(location));
+    console.log("Location found:", location);
 
-        navigate({ to: "/supermarkets" });
-      },
-      (error) => {
-  alert(
-    `Location error.\nCode: ${error.code}\nMessage: ${error.message}`
-  );
-}
-    );
+    localStorage.setItem("userLocation", JSON.stringify(location));
+
+    navigate({ to: "/supermarkets" });
+  },
+  (error) => {
+    console.error("Location error:", error);
+
+    if (error.code === 1) {
+      alert("Location permission was denied.");
+    } else if (error.code === 2) {
+      alert(
+        "Your device/browser could not determine your location. Please make sure Windows Location Services are turned on."
+      );
+    } else if (error.code === 3) {
+      alert("Location request timed out. Please try again.");
+    } else {
+      alert("Unable to determine your location.");
+    }
+  },
+  {
+    enableHighAccuracy: true,
+    timeout: 15000,
+    maximumAge: 0,
+  }
+);
   };
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-xl">
